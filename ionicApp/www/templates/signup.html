@@ -1,0 +1,31 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">הרשמה</h1>
+    <div class="buttons">
+      <button class="button button-positive" ng-click="closeSignup()">סגור</button>
+    </div>
+  </ion-header-bar>
+  <ion-content dir="rtl">
+    <form ng-submit="doSignup()" name="signupForm">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">שם</span>
+          <input type="text" ng-model="signupData.displayName" placeholder="שם מלא" required autofocus>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">אימייל</span>
+          <input type="email" ng-model="signupData.email" placeholder="האימייל שלך" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">סיסמא</span>
+          <input type="password" ng-model="signupData.password" placeholder="בחר סיסמא" required>
+        </label>
+        <button class="button button-block button-positive" ng-disabled="signupForm.$invalid" type="submit">הירשם</button>
+      </div>
+    </form>
+    <p class="text-center text-muted">
+      <small>כבר יש לך חשבון? <a ng-click="signupToLogin()" style="cursor:pointer;display:inline">התחבר</a></small>
+    </p>
+  </ion-content>
+</ion-modal-view>
+

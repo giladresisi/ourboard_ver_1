@@ -1,0 +1,18 @@
+<ion-nav-bar class="bar-stable">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+  <ion-nav-buttons side="left">
+    <button ng-click="reload()">
+      <i class="icon ion-android-refresh"></i>
+    </button>
+    <button ng-click="comment()">
+      <i class="icon ion-email"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button ng-click="userPopover.show($event)">
+      {{user.firstName}} ▼
+    </button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+<ion-nav-view name="menuContent"></ion-nav-view>

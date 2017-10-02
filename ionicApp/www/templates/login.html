@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">התחברות</h1>
+    <div class="buttons">
+      <button class="button button-positive" ng-click="closeLogin()">סגור</button>
+    </div>
+  </ion-header-bar>
+  <ion-content dir="rtl">
+    <form ng-submit="doLogin()" name="loginForm">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">אימייל</span>
+          <input type="email" ng-model="loginData.email" placeholder="אימייל" required autofocus>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">סיסמא</span>
+          <input type="password" ng-model="loginData.password" placeholder="סיסמא" required>
+        </label>
+        <button class="button button-block button-positive" ng-disabled="loginForm.$invalid" type="submit">התחבר</button>
+      </div>
+    </form>
+    <p class="text-center text-muted">
+      <small>עדיין אין לך חשבון? <a ng-click="loginToSignup()" style="cursor:pointer;display:inline">הירשם</a> או</small>
+    </p>
+    <!-- ENABLE ONLY AFTER ENABLING GOOGLE -->
+    <!-- <button ng-click="authenticate('google')" class="button button-block button-positive ion-social-googleplus">
+      התחבר עם חשבון גוגל
+    </button> -->
+    <button ng-click="authenticate('facebook')" class="button button-block button-positive ion-social-facebook">
+      התחבר עם חשבון פייסבוק
+    </button>
+  </ion-content>
+</ion-modal-view>

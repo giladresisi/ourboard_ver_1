@@ -1,0 +1,8 @@
+<ion-popover-view class="fit">
+  <ion-content scroll="false" dir="rtl">
+    <div class="list">
+      <a class="item" ng-if="!isAuthenticated()" ng-click="login()">הירשם</a>
+      <a class="item" ng-if="isAuthenticated()" ng-click="logout()">התנתק</a>
+    </div>
+  </ion-content>
+</ion-popover-view>

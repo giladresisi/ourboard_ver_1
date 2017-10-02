@@ -1,0 +1,14 @@
+
+
+# Elastic Beanstalk Files
+
+.elasticbeanstalk/*
+
+!.elasticbeanstalk/*.cfg.yml
+
+!.elasticbeanstalk/*.global.yml
+
+ionicApp/node_modules/
+ionicApp/platforms/
+ionicApp/plugins/
+ionicApp/www/lib/ion-datetime-picker/node_modules/

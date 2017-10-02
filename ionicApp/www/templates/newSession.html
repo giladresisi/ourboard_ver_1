@@ -1,0 +1,40 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">פעילות חדשה</h1>
+    <div class="buttons">
+      <button class="button icon ion-close" ng-click="closeNewSessionModal()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <br>
+    <div dir="rtl">
+      <button type="file" ngf-select="onImgSelect($file)" accept="image/*" dir="rtl" class="button-file">הוסף פלייר</button>
+    </div>
+    <form ng-submit="createNewSession()">
+      <div class="list">
+        <div class="item item-icon-right" ion-datetime-picker minute-step="15" title="'בחר תאריך ושעה לפעילות'"
+          only-valid="{'after': 'today', 'inclusive': true, 'before': yearFromNow}" ng-model="newSession.datetime">
+            <i class="icon ion-ios-calendar positive"></i>
+            <p align="right" style="cursor:pointer; color:blue" ng-if="newSession.datetime">{{newSession.datetime| date: "yyyy-MM-dd H:mm"}}</p>
+            <p align="right" style="cursor:pointer; color:blue" ng-if="!newSession.datetime">&ltבחר תאריך ושעה לפעילות&gt</p>
+        </div>
+        <label class="item item-input" dir="rtl">
+          <input list="activities" ng-model="newSession.type" onmousedown="value = '';" onfocusout="if (value=='') value = '<בחר או הקלד סוג פעילות>'">
+          <datalist id="activities">
+            <option ng-repeat="type in activityTypes">{{type}}</option>
+          </datalist>
+        </label>
+        <label class="item item-input" dir="rtl">
+          <input type="text" placeholder="מיקום" ng-model="newSession.location">
+        </label>
+        <!-- <label class="item item-input" dir="rtl">
+          <input name="sessionImg" type="file" accept="image/*" ng-model="newSessionImg">
+        </label> -->
+        <label class="item item-input" dir="rtl">
+          <input type="text" placeholder="פרטים נוספים (לא חובה)" ng-model="newSession.extraDetails">
+        </label>
+        <button class="button button-block button-positive" type="submit">צור פעילות</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

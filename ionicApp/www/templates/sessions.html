@@ -1,0 +1,53 @@
+<ion-view>
+  <ion-nav-title>לוח רמת אשכול</ion-nav-title>
+  <ion-content padding="true">
+    <button ng-show="isAuthenticated()" class="button button-block button-positive" ng-click="showNewSessionModal()" dir="rtl">
+      צור פעילות חדשה
+    </button>
+    <ion-checkbox ng-show="isAuthenticated()" ng-model="showMineOnly" dir="rtl">
+      <p dir="rtl">הצג רק פעילויות בהשתתפותי</p>
+    </ion-checkbox>
+    <ion-item ng-show="!isAuthenticated()" style="background-color:#F0F8FF; cursor:pointer" dir="rtl">
+      <a ng-click="login()" style="color:blue">
+        התחבר כדי להצטרף / ליצור פעילות
+      </a>
+    </ion-item>
+    <center ng-if="!loaded"><br><ion-spinner icon="bubbles" class="spinner-calm"></ion-spinner></center>
+    <ion-list ng-if="loaded">
+      <ion-toggle class="item item-toggle item-icon-left my-item" ng-repeat="session in sessions" toggle-class="toggle-calm" ng-disabled="session.erased"
+        ng-change="onParticipationChange(session)" ng-if="isAuthenticated() && (!showMineOnly || session.isParticipant)" ng-model="session.isParticipant">
+        <i ng-class="sessionIcon(session)" ng-if="!session.erased" ng-click="showSessionParticipants(session)" style="cursor:pointer">
+          <span class="badge icon-badge">{{session.nParticipants}}</span>
+        </i>
+        <i class="icon ion-close-round assertive" ng-if="session.erased" style="cursor:not-allowed"></i>
+        <div class="my-clickable-item-part" ng-if="!session.erased" ng-click="showSessionInfo(session)">
+          <h2 dir="rtl">{{session.type}}</h2>
+          <h4 dir="rtl">{{session.location}}</h4>
+          <div class="my-circle"></div>
+          <h3 class="my-date">{{session.dateStr}}</h3>
+          <h3 class="my-time">{{session.timeStr}}</h3>
+        </div>
+        <div class="my-unclickable-item-part" ng-if="session.erased">
+          <h2 dir="rtl">{{session.type}}</h2>
+          <h4 dir="rtl">{{session.location}}</h4>
+          <div class="my-circle"></div>
+          <h3 class="my-date">{{session.dateStr}}</h3>
+          <h3 class="my-time">{{session.timeStr}}</h3>
+        </div>
+      </ion-toggle>
+      <ion-toggle class="item item-toggle item-icon-left my-item" ng-repeat="session in sessions" toggle-class="toggle-calm" ng-disabled="true" checked="false"
+        ng-if="!isAuthenticated()">
+        <i ng-class="sessionIcon(session)" ng-click="showSessionParticipants(session)" style="cursor:pointer">
+          <span class="badge icon-badge">{{session.nParticipants}}</span>
+        </i>
+        <div class="my-clickable-item-part" ng-click="showSessionInfo(session)">
+          <h2 dir="rtl">{{session.type}}</h2>
+          <h4 dir="rtl">{{session.location}}</h4>
+          <div class="my-circle"></div>
+          <h3 class="my-date">{{session.dateStr}}</h3>
+          <h3 class="my-time">{{session.timeStr}}</h3>
+        </div>
+      </ion-toggle>
+    </ion-list>
+  </ion-content>
+</ion-view>

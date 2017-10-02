@@ -1,0 +1,187 @@
+/* Empty. Add your own CSS if you like */
+.item {
+  border-color: #fff;
+}
+
+.item-toggle {
+  pointer-events:initial !important;
+}
+
+.item-checkbox {
+  padding-right: 60px;
+  padding-left: 0px; }
+}
+
+.item-select .item-select:after {
+  left: 16px;
+  right: inherit;
+}
+
+a {
+  display: block;
+  width: 100%;
+  color: blue;
+  text-decoration: initial;
+}
+
+.item .icon .icon-badge {
+	position: absolute;
+	top: 50px;
+	font-size: 12px;
+	color: #f00;
+}
+
+.item-icon-right .icon .icon-badge {
+  right: 20px;
+}
+
+.item-icon-left .icon .icon-badge {
+  left: 20px;
+}
+
+.button-file {
+  position: relative;
+  right: 15px;
+}
+
+ion-popover-view.fit {
+  height: auto;
+}
+
+ion-popover-view.fit ion-content {
+  position: relative;
+}
+
+.platform-android ion-popover-view.fit {
+  margin-top: 10px;
+}
+
+.platform-ios ion-popover-view.fit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.item-toggle,
+.item-toggle.item-complex .item-content {
+  padding-left: 70px;
+  padding-right: 0;
+}
+
+.item-toggle .toggle {
+  left: 16px;
+  right: inherit;}
+
+.toggle input:disabled + .track {
+  opacity: .5;
+  background-color: #ccc;
+}
+
+.toggle input:disabled + .track .handle {
+  background-color: #999;
+}
+
+.popup-buttons {
+  direction: rtl;
+}
+
+.popup-open {
+  pointer-events: none;
+}
+
+.popup-container {
+pointer-events: auto;}
+
+.item-icon-left .icon {
+  left: 20px;
+}
+
+.my-item .icon:before {
+  padding-top: 55px;
+}
+
+.my-item {
+  padding-top: 80px;
+  background-color: #b3f0ff;
+  border-width: 5px;
+}
+
+.my-item .toggle {
+  top: 10px;
+}
+
+.my-clickable-item-part {
+  cursor: pointer;
+}
+
+.my-unclickable-item-part {
+  cursor:not-allowed
+}
+
+.my-clickable-item-part h2,
+.my-unclickable-item-part h2 {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  font-weight: bold;
+}
+
+.my-clickable-item-part h4,
+.my-unclickable-item-part h4 {
+  position: absolute;
+  top: 50px;
+  right: 80px;
+}
+
+.my-circle {
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background: #003399;
+  z-index: 5;
+  position: absolute;
+  right: 5px;
+  top: 18px;
+}
+
+.my-date {
+  z-index: 6;
+  position: absolute;
+  right: 16px;
+  top: 27px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.my-time {
+  z-index: 6;
+  position: absolute;
+  right: 16px;
+  top: 50px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.bar-header,
+.bar.bar-stable {
+  background-color: #003399;
+}
+
+.title,
+.nav-bar-title {
+  color: white;
+  font-weight: bold;
+}
+
+.checkbox input:before,
+.checkbox-icon:before {
+  border-width: 3px;
+}
+
+.item p {
+  padding-right: 16px;
+  font-size: 16px;
+}

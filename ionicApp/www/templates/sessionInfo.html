@@ -1,0 +1,38 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">מידע על פעילות</h1>
+    <div class="buttons">
+      <button class="button button-positive" ng-click="closeSessionInfo()">סגור</button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="has-tabs" padding="true" dir="rtl">
+	  <ion-toggle ng-if="isAuthenticated()" ng-model="selectedSession.isParticipant" toggle-class="toggle-calm" ng-change="onParticipationChange(selectedSession)">
+      <p>אני משתתף בפעילות</p>
+    </ion-toggle>
+    <ion-list>
+      <ion-item>
+        מתי: {{selectedSession.timeStr}}, {{selectedSession.dateStr}}
+      </ion-item>
+      <ion-item>
+        סוג: {{selectedSession.type}}
+      </ion-item>
+      <ion-item>
+        מיקום: {{selectedSession.location}}
+      </ion-item>
+      <ion-item ng-if="selectedSession.nParticipants > 0" style="cursor:pointer">
+        <a ng-click="showSessionParticipants(selectedSession)" style="color:blue">
+          משתתפים: {{selectedSession.nParticipants}}
+        </a>
+      </ion-item>
+      <ion-item ng-if="selectedSession.nParticipants == 0">
+        משתתפים: {{selectedSession.nParticipants}}
+      </ion-item>
+      <ion-item ng-if="selectedSession.extraDetails.length > 0">
+        פרטים נוספים: {{selectedSession.extraDetails}}
+      </ion-item>
+      <ion-item ng-if="selectedSession.hasImage">
+        <img width="100%" src="{{selectedSession.imageUrl}}"></img>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <div dir="rtl">
+      <button class="button button-positive" ng-click="showSessionInfo(selectedSession)" style="{opacity: 0; text-align: right;}">לפעילות</button>
+      <h1 class="title">משתתפים בפעילות</h1>
+      <button class="button button-positive" ng-click="closeSessionParticipants()" style="{opacity: 0; text-align: left;}">סגור</button>
+    </div>
+  </ion-header-bar>
+  <ion-content padding="true" dir="rtl">
+    <ion-toggle ng-if="isAuthenticated()" ng-model="selectedSession.isParticipant" toggle-class="toggle-calm" ng-change="onParticipationChange(selectedSession)">
+      <p>אני משתתף בפעילות</p>
+    </ion-toggle>
+    <ion-list>
+      <ion-item ng-repeat="participant in selectedSession.participants">
+        {{participant.displayName}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>
