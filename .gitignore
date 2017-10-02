@@ -8,7 +8,10 @@
 
 !.elasticbeanstalk/*.global.yml
 
+uploads/
 ionicApp/node_modules/
 ionicApp/platforms/
 ionicApp/plugins/
 ionicApp/www/lib/ion-datetime-picker/node_modules/
+ionicApp/www/lib/ng-file-upload/node_modules/
+ionicApp/www/lib/ng-file-upload-shim/node_modules/
