@@ -309,6 +309,7 @@ angular.module('controllers', ['ion-datetime-picker', 'ngFileUpload'])
     $scope.newSession.type = "<בחר או הקלד סוג פעילות>";
     $scope.newSession.location = '';
     $scope.newSession.extraDetails = '';
+    $scope.imgBtnText = 'הוסף פלייר';
     $scope.newSessionModal.show()
       .then(function() {
         return;
@@ -318,8 +319,19 @@ angular.module('controllers', ['ion-datetime-picker', 'ngFileUpload'])
   $scope.onImgSelect = function(file) {
     $scope.newSessionImg = file;
     if (file) {
+      $scope.imgBtnText = 'שנה';
       console.log('filename: ' + file.name);
     }
+  };
+
+  $scope.onImgDeselect = function() {
+    $scope.newSessionImg = undefined;
+    $scope.imgBtnText = 'הוסף פלייר';
+  };
+
+  $scope.preventSubmit = function($event) {
+    $event.preventDefault();
+    return false;
   };
 
   // Perform the login action when the user submits the login form

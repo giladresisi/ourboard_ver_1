@@ -6,11 +6,7 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <br>
-    <div dir="rtl">
-      <button type="file" ngf-select="onImgSelect($file)" accept="image/*" dir="rtl" class="button-file">הוסף פלייר</button>
-    </div>
-    <form ng-submit="createNewSession()">
+    <form ng-submit="preventSubmit($event)">
       <div class="list">
         <div class="item item-icon-right" ion-datetime-picker minute-step="15" title="'בחר תאריך ושעה לפעילות'"
           only-valid="{'after': 'today', 'inclusive': true, 'before': yearFromNow}" ng-model="newSession.datetime">
@@ -27,13 +23,15 @@
         <label class="item item-input" dir="rtl">
           <input type="text" placeholder="מיקום" ng-model="newSession.location">
         </label>
-        <!-- <label class="item item-input" dir="rtl">
-          <input name="sessionImg" type="file" accept="image/*" ng-model="newSessionImg">
-        </label> -->
+        <div class="item item-input" dir="rtl">
+          <button type="file" ngf-select="onImgSelect($file)" accept="image/*" dir="rtl" class="button-file" style="margin-left:20px">{{imgBtnText}}</button>
+          <button type="button" ng-click="onImgDeselect()" ng-if="newSessionImg!=undefined" style="margin-left:20px">הסר</button>
+          <span ng-if="newSessionImg!=undefined">{{newSessionImg.name}}</span>
+        </div>
         <label class="item item-input" dir="rtl">
           <input type="text" placeholder="פרטים נוספים (לא חובה)" ng-model="newSession.extraDetails">
         </label>
-        <button class="button button-block button-positive" type="submit">צור פעילות</button>
+        <button class="button button-block button-positive" type="button" ng-click="createNewSession()">צור פעילות</button>
       </div>
     </form>
   </ion-content>
